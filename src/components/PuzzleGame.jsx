@@ -81,8 +81,8 @@ const PuzzleGame = () => {
       setTiles(newTiles);
       setMoves(moves + 1);
 
-      // Check if won
-      const won = newTiles.every((tile, i) => tile === i);
+      // Check if won - tiles 1-8 in order, empty (0) at end
+      const won = newTiles.slice(0, 8).every((tile, i) => tile === i + 1) && newTiles[8] === 0;
       if (won) {
         setIsWon(true);
       }
@@ -209,7 +209,16 @@ const PuzzleGame = () => {
     }
 
     if (targetIndex !== null && targetIndex === emptyIndex) {
-      handleTileClick(tileIndex);
+      const newTiles = [...tiles];
+      [newTiles[emptyIndex], newTiles[tileIndex]] = [newTiles[tileIndex], newTiles[emptyIndex]];
+      setTiles(newTiles);
+      setMoves(moves + 1);
+
+      // Check if won - tiles 1-8 in order, empty (0) at end
+      const won = newTiles.slice(0, 8).every((tile, i) => tile === i + 1) && newTiles[8] === 0;
+      if (won) {
+        setIsWon(true);
+      }
     }
   };
 
