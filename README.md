@@ -1,17 +1,31 @@
-# 🧩 Puzzle Game - Mobile-First React App
+# 🧩 Sliding Puzzle - Mobile Game
 
-A sliding puzzle game optimized for iPhone and mobile devices, built with React, SCSS, and deployed on GitHub Pages.
+A fast-paced, touch-optimized sliding puzzle game built with React and deployed on GitHub Pages. Solve the classic 8-tile puzzle with smooth swipe gestures and animations.
+
+**Play now:** [https://angelonastro.github.io/sliding-puzzle/](https://angelonastro.github.io/sliding-puzzle/)
 
 ## 🎮 Features
 
-- **Touch-Optimized**: Smooth touch interactions for mobile devices
-- **Responsive Design**: Works perfectly on iPhone and other mobile devices
-- **3x3 Sliding Puzzle**: Classic 8-tile puzzle game
-- **Move Counter**: Track your progress
-- **Mobile-First**: Designed specifically for mobile gameplay
-- **PWA Ready**: Can be installed as a web app on mobile devices
+- ✨ **Smooth Touch Gestures** - Swipe tiles naturally with visual drag feedback
+- 🎨 **Rainbow Design** - Colorful gradient tiles with pastel background
+- 📊 **Move Counter** - Track your progress and challenge yourself to beat your score
+- ⚡ **Instant Feedback** - Real-time visual response to every interaction
+- 📱 **Mobile-First** - Perfectly optimized for iPhone and touch devices
+- 🎯 **Classic Gameplay** - Arrange tiles 1-8 in order with one empty space
+- 🏆 **Victory Animation** - Celebratory message when you win
+- 📲 **PWA Ready** - Add to home screen for app-like experience
+- 🎬 **Smooth Animations** - Staggered tile entrance and hover effects
 
-## 🚀 Getting Started
+## 🕹️ How to Play
+
+1. **Goal**: Arrange the numbered tiles in order (1-8) with the empty space at bottom-right
+2. **Move Tiles**:
+   - **Tap** adjacent tiles to slide them into the empty space
+   - **Swipe** tiles in the direction they should move
+3. **Minimize Moves**: Try to solve the puzzle in the fewest moves possible
+4. **New Game**: Click "New Game" button to shuffle and restart
+
+## 🚀 Quick Start
 
 ### Development
 
@@ -19,52 +33,118 @@ A sliding puzzle game optimized for iPhone and mobile devices, built with React,
 # Install dependencies
 npm install
 
-# Run development server
+# Start dev server
 npm run dev
+```
 
+Dev server runs at `http://localhost:5173/sliding-puzzle/`
+
+### Production
+
+```bash
 # Build for production
 npm run build
 
 # Preview production build
 npm run preview
-```
 
-### Deployment to GitHub Pages
-
-```bash
 # Deploy to GitHub Pages
 npm run deploy
 ```
 
-Or use the automatic GitHub Actions workflow (push to main branch).
+## 🛠️ Tech Stack
+
+- **React 19** - Modern UI framework with hooks
+- **Vite 7** - Lightning-fast build tool with HMR
+- **SCSS** - Scoped styling with variables and nesting
+- **Touch API** - Native mobile gesture handling
+- **gh-pages** - Automatic GitHub Pages deployment
+- **CSS Animations** - Smooth, performant animations
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── PuzzleGame.jsx      # Main game logic & state
+│   └── PuzzleGame.scss     # Game styling & animations
+├── App.jsx                 # Root component
+├── App.scss                # App styles
+├── main.jsx                # Entry point
+└── index.scss              # Global styles
+
+public/
+└── icon.svg                # App icon (rainbow puzzle)
+```
+
+## 🎨 Design System
+
+- **Colors**: Rainbow gradient for tiles (Red → Orange → Cyan → Pink → Blue → Purple → Teal → Green)
+- **Background**: Soft pastel gradient with floating blur effects
+- **Typography**: Minimal, clean design with custom spacing
+- **Animations**: Staggered entrances, smooth transitions, subtle hover effects
 
 ## 📱 Mobile Optimization
 
-- Viewport configured for mobile devices
-- Touch event handlers
-- Prevents unwanted zooming/scrolling
-- Large touch targets (44x44px minimum)
-- Visual feedback on interactions
-- Optimized for iOS Safari
+- Touch-optimized 90x90px tiles
+- Prevents default zoom/scroll behaviors
+- Works on iOS Safari, Chrome Mobile, and all modern browsers
+- Responsive viewport configuration
+- No external dependencies for touch handling
 
-## 🛠️ Tech Stack
+## ⚙️ Configuration
 
-- **React 19** - UI Framework
-- **Vite** - Build tool
-- **SCSS** - Styling
-- **GitHub Pages** - Hosting
+The `base` path in `vite.config.js` is set to `/sliding-puzzle/` to serve correctly from GitHub Pages:
 
-## 📝 Game Instructions
+```javascript
+export default defineConfig({
+  plugins: [react()],
+  base: "/sliding-puzzle/",
+});
+```
 
-1. Tap tiles adjacent to the empty space to move them
-2. Arrange numbers in order from 1-8
-3. Try to complete in fewest moves possible
-4. Tap "New Game" to shuffle and restart
+Update this if deploying to a different path.
 
-## 🔧 Configuration
+## 🚀 Deployment
 
-The `base` path in `vite.config.js` is set to `/sliding-puzzle/` to match the GitHub repository name.
+### GitHub Pages
+
+```bash
+npm run deploy
+```
+
+This builds the app and pushes to the `gh-pages` branch.
+
+**Settings required:**
+
+- Go to repository Settings → Pages
+- Source: Deploy from a branch
+- Branch: `gh-pages` / root folder
+
+### Custom Domain
+
+Update GitHub Pages settings to use your custom domain.
+
+## 📊 Game Logic
+
+- **Grid**: 3x3 with 8 tiles + 1 empty space
+- **Shuffle**: 100 random valid moves to ensure solvability
+- **Win Condition**: Tiles 1-8 in order with empty space (0) at position 8
+- **Valid Moves**: Only tiles adjacent to empty space can move
+- **State**: Move counter increments with each tile movement
+
+## 🎯 Performance
+
+- Optimized for 60fps animations
+- Minimal re-renders with React hooks
+- CSS transforms for hardware acceleration
+- Lazy loading with Vite code splitting
+- Gzipped bundle: ~62KB (61.97KB gzipped)
 
 ## 📄 License
 
-MIT
+MIT - Feel free to use, modify, and distribute
+
+---
+
+**Made with ❤️ for mobile gaming**
